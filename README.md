@@ -24,21 +24,21 @@ TensorFlow's website describes installation details.
 The TensorFlow Object Detection API and Anaconda Virtual Environment requires configuration. There are several sub steps as explained below.
 
 ### 2a. Download TensorFlow Object Detection API repository from GitHub
-** Create a folder in C: and name it “tensorflow12”. 
+** Create a folder in C: and name it “tensorflow13”. 
 This working directory will contain the full TensorFlow object detection framework, as well training images, training data, trained classifier, configuration files, and everything else needed for the object detection classifier.
 
-Download the full TensorFlow object detection repository located at https://github.com/tensorflow/models by clicking the “Clone or Download” button and downloading the zip file. Open the downloaded zip file and extract the “models-master” folder directly into the C:\tensorflow12 directory. Rename “models-master” to just “models”.
+Download the full TensorFlow object detection repository located at https://github.com/tensorflow/models by clicking the “Clone or Download” button and downloading the zip file. Open the downloaded zip file and extract the “models-master” folder directly into the C:\tensorflow13 directory. Rename “models-master” to just “models”.
 
 ### 2b. Download the Faster-RCNN-Inception-V2-COCO model from TensorFlow's model zoo
 TensorFlow provides several object detection models (pre-trained classifiers with specific neural network architectures) in its model zoo such as the SSD-MobileNet model, Faster-RCNN model.
 
 This progarm use the Faster-RCNN-Inception-V2 model. Download the model. 
 Open the downloaded 
-faster_rcnn_inception_v2_coco_2018_01_28.tar.gz file with a file archiver such as WinZip or 7-Zip and extract the faster_rcnn_inception_v2_coco_2018_01_28 folder to the C:\tensorflow12\models\research\object_detection folder.
+faster_rcnn_inception_v2_coco_2018_01_28.tar.gz file with a file archiver such as WinZip or 7-Zip and extract the faster_rcnn_inception_v2_coco_2018_01_28 folder to the C:\tensorflow13\models\research\object_detection folder.
 
 ### 2c. Download this program repository from GitHub
 
-Download the full repository located on this page (scroll to the top and click Clone or Download) and extract all the contents directly into the C:\tensorflow12\models\research\object_detection directory.
+Download the full repository located on this page (scroll to the top and click Clone or Download) and extract all the contents directly into the C:\tensorflow13\models\research\object_detection directory.
 
 At this point, here is what your \object_detection folder should look like:
 
@@ -55,36 +55,36 @@ All files in \object_detection\inference_graph
 
 Go to the start menu in Windows, search for the Anaconda Prompt utility, right click on it, and click “Run as Administrator”. The  Windows will asks if you would like to allow it to make changes to your computer, click Yes.
 
-In the command terminal that pops up, create a new virtual environment called “tensorflow12” by issuing the following command:
+In the command terminal that pops up, create a new virtual environment called “tensorflow13” by issuing the following command:
 
-C:\> conda create -n tensorflow12 pip python=3.5
+C:\> conda create -n tensorflow13 pip python=3.5
 
 Activate the environment and update pip:
-C:\> activate tensorflow12
+C:\> activate tensorflow13
 
-(tensorflow12) C:\>python -m pip install --upgrade pip
+(tensorflow13) C:\>python -m pip install --upgrade pip
 
 Install tensorflow in this environment by issuing:
-(tensorflow12) C:\> pip install --ignore-installed --upgrade tensorflow
+(tensorflow13) C:\> pip install --ignore-installed --upgrade tensorflow
 
 Install the other necessary packages using commands:
-(tensorflow12) C:\> conda install -c anaconda protobuf
+(tensorflow13) C:\> conda install -c anaconda protobuf
 
-(tensorflow12) C:\> pip install pillow
+(tensorflow13) C:\> pip install pillow
 
-(tensorflow12) C:\> pip install lxml
+(tensorflow13) C:\> pip install lxml
 
-(tensorflow12) C:\> pip install Cython
+(tensorflow13) C:\> pip install Cython
 
-(tensorflow12) C:\> pip install contextlib2
+(tensorflow13) C:\> pip install contextlib2
 
-(tensorflow12) C:\> pip install jupyter
+(tensorflow13) C:\> pip install jupyter
 
-(tensorflow12) C:\> pip install matplotlib
+(tensorflow13) C:\> pip install matplotlib
 
-(tensorflow12) C:\> pip install pandas
+(tensorflow13) C:\> pip install pandas
 
-(tensorflow12) C:\> pip install opencv-python
+(tensorflow13) C:\> pip install opencv-python
 
 ( The ‘pandas’ and ‘opencv-python’ packages are not needed by TensorFlow. They are used in the Python scripts to generate TFRecords and to work with images, videos, and webcam feeds.)
 
@@ -92,29 +92,29 @@ Install the other necessary packages using commands:
 
 A PYTHONPATH variable must be created that points to the \models, \models\research, and \models\research\slim directories. Use the following commands (from any directory):
 
-(tensorflow12) C:\> set PYTHONPATH=C:\tensorflow12\models;C:\tensorflow12\models\research;C:\tensorflow12\models\research\slim
+(tensorflow13) C:\> set PYTHONPATH=C:\tensorflow13\models;C:\tensorflow13\models\research;C:\tensorflow13\models\research\slim
 
 ### 2f. Compile Protobufs and run setup.py
 
 Next, compile the Protobuf files, which are used by TensorFlow to configure model and training parameters.
 In the Anaconda Command Prompt, change directories to the \models\research directory:
 
-(tensorflow12) C:\> cd C:\tensorflow12\models\research
+(tensorflow13) C:\> cd C:\tensorflow13\models\research
 
 Copy and paste the following command into the command line and press Enter:
 
 protoc --python_out=. .\object_detection\protos\anchor_generator.proto .\object_detection\protos\argmax_matcher.proto .\object_detection\protos\bipartite_matcher.proto .\object_detection\protos\box_coder.proto .\object_detection\protos\box_predictor.proto .\object_detection\protos\eval.proto .\object_detection\protos\faster_rcnn.proto .\object_detection\protos\faster_rcnn_box_coder.proto .\object_detection\protos\grid_anchor_generator.proto .\object_detection\protos\hyperparams.proto .\object_detection\protos\image_resizer.proto .\object_detection\protos\input_reader.proto .\object_detection\protos\losses.proto .\object_detection\protos\matcher.proto .\object_detection\protos\mean_stddev_box_coder.proto .\object_detection\protos\model.proto .\object_detection\protos\optimizer.proto .\object_detection\protos\pipeline.proto .\object_detection\protos\post_processing.proto .\object_detection\protos\preprocessor.proto .\object_detection\protos\region_similarity_calculator.proto .\object_detection\protos\square_box_coder.proto .\object_detection\protos\ssd.proto .\object_detection\protos\ssd_anchor_generator.proto .\object_detection\protos\string_int_label_map.proto .\object_detection\protos\train.proto .\object_detection\protos\keypoint_box_coder.proto .\object_detection\protos\multiscale_anchor_generator.proto .\object_detection\protos\graph_rewriter.proto .\object_detection\protos\calibration.proto .\object_detection\protos\flexible_grid_anchor_generator.proto
 
 Finally, run the following commands from the 
-C:\tensorflow12\models\research directory:
+C:\tensorflow13\models\research directory:
 
-(tensorflow12) C:\tensorflow12\models\research> python setup.py build
-(tensorflow12) C:\tensorflow12\models\research> python setup.py install
+(tensorflow13) C:\tensorflow13\models\research> python setup.py build
+(tensorflow13) C:\tensorflow13\models\research> python setup.py install
 
 ### 2g. Test TensorFlow setup to verify it works
 From the \object_detection directory, issue this command:
 
-(tensorflow12) C:\tensorflow12\models\research\object_detection> jupyter notebook object_detection_tutorial.ipynb
+(tensorflow13) C:\tensorflow13\models\research\object_detection> jupyter notebook object_detection_tutorial.ipynb
 
 ![Image of objects](https://github.com/tensorflow/models/raw/master/research/object_detection/g3doc/img/kites_detections_output.jpg)
 
@@ -147,7 +147,7 @@ With the images labeled, now generate the TFRecords that serve as input data to 
 
 First, the image .xml data will be used to create .csv files containing all the data for the train and test images. From the \object_detection folder, issue the following command in the Anaconda command prompt:
 
-(tensorflow12) C:\tensorflow12\models\research\object_detection> python xml_to_csv.py
+(tensorflow13) C:\tensorflow13\models\research\object_detection> python xml_to_csv.py
 
 This creates a train_labels.csv and test_labels.csv file in the \object_detection\images folder.
 
@@ -190,7 +190,7 @@ The label map ID numbers should be the same as what is defined in the generate_t
 ### 5b. Configure training
 
 Navigate to 
-C:\tensorflow12\models\research\object_detection\samples\configs and copy the faster_rcnn_inception_v2_pets.config file into the 
+C:\tensorflow13\models\research\object_detection\samples\configs and copy the faster_rcnn_inception_v2_pets.config file into the 
 \object_detection\training directory. 
 
 Then, open the file with a text editor for adding changes.
@@ -201,19 +201,19 @@ Make the following changes to the faster_rcnn_inception_v2_pets.config file.
 
 * Line 106. Change fine_tune_checkpoint to:
 
-fine_tune_checkpoint : "C:/tensorflow12/models/research/object_detection/faster_rcnn_inception_v2_coco_2018_01_28/model.ckpt"
+fine_tune_checkpoint : "C:/tensorflow13/models/research/object_detection/faster_rcnn_inception_v2_coco_2018_01_28/model.ckpt"
 
 *Lines 123 and 125. In the train_input_reader section, change input_path and label_map_path to:
 
-input_path : "C:/tensorflow12/models/research/object_detection/train.record"
-label_map_path: "C:/tensorflow12/models/research/object_detection/training/labelmap.pbtxt"
+input_path : "C:/tensorflow13/models/research/object_detection/train.record"
+label_map_path: "C:/tensorflow13/models/research/object_detection/training/labelmap.pbtxt"
 
 * Line 130. Change num_examples to the number of images you have in the \images\test directory.
 
 * Lines 135 and 137. In the eval_input_reader section, change input_path and label_map_path to:
 
-input_path : "C:/tensorflow12/models/research/object_detection/test.record"
-label_map_path: "C:/tensorflow12/models/research/object_detection/training/labelmap.pbtxt"
+input_path : "C:/tensorflow13/models/research/object_detection/test.record"
+label_map_path: "C:/tensorflow13/models/research/object_detection/training/labelmap.pbtxt"
 
 Save the file after the changes have been made. The training job is all configured.
 
@@ -228,11 +228,11 @@ If everything has been set up correctly, TensorFlow will initialize the training
 
 Each step of training reports the loss. It will start high and get lower and lower as training progresses. It will take about 40,000 steps, or about 2 hours (depending on how powerful your CPU and GPU are). Note: The loss numbers will be different if a different model is used. MobileNet-SSD starts with a loss of about 20, and should be trained until the loss is consistently under 2.
 
-You can view the progress of the training job by using TensorBoard. Open a new instance of Anaconda Prompt, activate the tensorflow12 virtual environment, change to the 
+You can view the progress of the training job by using TensorBoard. Open a new instance of Anaconda Prompt, activate the tensorflow13 virtual environment, change to the 
 
-C:\tensorflow12\models\research\object_detection directory, and issue the following command:
+C:\tensorflow13\models\research\object_detection directory, and issue the following command:
 
-(tensorflow12) C:\tensorflow12\models\research\object_detection>tensorboard --logdir=training
+(tensorflow13) C:\tensorflow13\models\research\object_detection>tensorboard --logdir=training
 
 This will create a webpage on the local machine, which can be viewed through a web browser. The TensorBoard page provides information and graphs that show how the training is progressing. One important graph is the Loss graph, which shows the overall loss of the classifier over time.
 
@@ -246,7 +246,7 @@ This creates a frozen_inference_graph.pb file in the \object_detection\inference
 
 # 8. Use Newly Trained Object Detection (frankincense) Classifier
 
-To run any of the scripts, type “idle” in the Anaconda Command Prompt (with the “tensorflow12” virtual environment activated) and press ENTER. This will open IDLE, and from there, you can open any of the scripts and run them.
+To run any of the scripts, type “idle” in the Anaconda Command Prompt (with the “tensorflow13” virtual environment activated) and press ENTER. This will open IDLE, and from there, you can open any of the scripts and run them.
 
 If everything is working properly, the object detector will initialize for about 10 seconds and then display a window showing the objects it’s detected in the image!
 
