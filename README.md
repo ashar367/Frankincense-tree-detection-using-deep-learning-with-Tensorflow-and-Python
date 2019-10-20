@@ -42,9 +42,9 @@ Download the full repository located on this page (scroll to the top and click C
 
 At this point, here is what your \object_detection folder should look like:
 
-This repository contains the images, annotation data, .csv files, and TFRecords needed to train a "vehicle" detector.
+This repository contains the images, annotation data, .csv files, and TFRecords needed to train a "frankincense" detector.
 
-To train own object detector (vehicle), delete the following files (do not delete the folders):
+To train own object detector (frankincense), delete the following files (do not delete the folders):
 
 All files in \object_detection\images\train and \object_detection\images\test
 The “test_labels.csv” and “train_labels.csv” files in \object_detection\images
@@ -244,7 +244,7 @@ python export_inference_graph.py --input_type image_tensor --pipeline_config_pat
 
 This creates a frozen_inference_graph.pb file in the \object_detection\inference_graph folder. The .pb file contains the object detection classifier.
 
-# 8. Use Newly Trained Object Detection (Vehicle) Classifier
+# 8. Use Newly Trained Object Detection (frankincense) Classifier
 
 To run any of the scripts, type “idle” in the Anaconda Command Prompt (with the “tensorflow12” virtual environment activated) and press ENTER. This will open IDLE, and from there, you can open any of the scripts and run them.
 
