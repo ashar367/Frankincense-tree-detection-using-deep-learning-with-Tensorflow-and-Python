@@ -133,6 +133,8 @@ Move 20% of them to the \object_detection\images\test directory, and 80% of them
 
 LabelImg is a tool for labeling images.
 
+![Image of objects](https://github.com/ashar367/Frankincense-tree-detection-using-deep-learning-with-Tensorflow-and-Python/blob/master/frankincense-4.jpg)
+
 LabelImg GitHub link
 
 LabelImg download link
