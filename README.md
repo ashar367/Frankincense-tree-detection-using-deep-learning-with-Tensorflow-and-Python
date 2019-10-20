@@ -250,6 +250,10 @@ To run any of the scripts, type “idle” in the Anaconda Command Prompt (with 
 
 If everything is working properly, the object detector will initialize for about 10 seconds and then display a window showing the objects it’s detected in the image!
 
-![Image of objects](https://github.com/ashar367/Vehicle-detection-using-deep-learning-with-Tensorflow-and-Python/blob/master/car.png)
+![Image of objects](https://github.com/ashar367/Frankincense-tree-detection-using-deep-learning-with-Tensorflow-and-Python/blob/master/frankincense-4.jpg)
+
+![Image of objects](https://github.com/ashar367/Frankincense-tree-detection-using-deep-learning-with-Tensorflow-and-Python/blob/master/frankincense-4.jpg)
+
+![Image of objects](https://github.com/ashar367/Frankincense-tree-detection-using-deep-learning-with-Tensorflow-and-Python/blob/master/frankincense-4.jpg)
 
 If you encounter errors, check out on Stack Exchange or in TensorFlow’s Issues on GitHub.
