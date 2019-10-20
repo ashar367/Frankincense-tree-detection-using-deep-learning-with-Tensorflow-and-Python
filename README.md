@@ -252,7 +252,7 @@ If everything is working properly, the object detector will initialize for about
 
 ![Image of objects](https://github.com/ashar367/Frankincense-tree-detection-using-deep-learning-with-Tensorflow-and-Python/blob/master/frankincense-2.jpeg?raw=true)
 
-![Image of objects](https://github.com/ashar367/Frankincense-tree-detection-using-deep-learning-with-Tensorflow-and-Python/blob/master/frankincense-3.jpg)
+![Image of objects](https://github.com/ashar367/Frankincense-tree-detection-using-deep-learning-with-Tensorflow-and-Python/blob/master/frankincense-1.png?raw=true)
 
 ![Image of objects](https://github.com/ashar367/Frankincense-tree-detection-using-deep-learning-with-Tensorflow-and-Python/blob/master/frankincense-4.jpg)
 
