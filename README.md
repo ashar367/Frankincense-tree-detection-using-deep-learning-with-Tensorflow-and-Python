@@ -57,17 +57,25 @@ Go to the start menu in Windows, search for the Anaconda Prompt utility, right c
 
 In the command terminal that pops up, create a new virtual environment called “tensorflow13” by issuing the following command:
 
+```
 C:\> conda create -n tensorflow13 pip python=3.5
+```
 
 Activate the environment and update pip:
-C:\> activate tensorflow13
 
+```
+C:\> activate tensorflow13
 (tensorflow13) C:\>python -m pip install --upgrade pip
+```
 
 Install tensorflow in this environment by issuing:
+```
 (tensorflow13) C:\> pip install --ignore-installed --upgrade tensorflow
+```
 
 Install the other necessary packages using commands:
+
+```
 (tensorflow13) C:\> conda install -c anaconda protobuf
 
 (tensorflow13) C:\> pip install pillow
@@ -85,6 +93,7 @@ Install the other necessary packages using commands:
 (tensorflow13) C:\> pip install pandas
 
 (tensorflow13) C:\> pip install opencv-python
+```
 
 ( The ‘pandas’ and ‘opencv-python’ packages are not needed by TensorFlow. They are used in the Python scripts to generate TFRecords and to work with images, videos, and webcam feeds.)
 
@@ -92,24 +101,32 @@ Install the other necessary packages using commands:
 
 A PYTHONPATH variable must be created that points to the \models, \models\research, and \models\research\slim directories. Use the following commands (from any directory):
 
+```
 (tensorflow13) C:\> set PYTHONPATH=C:\tensorflow13\models;C:\tensorflow13\models\research;C:\tensorflow13\models\research\slim
+```
 
 ### 2f. Compile Protobufs and run setup.py
 
 Next, compile the Protobuf files, which are used by TensorFlow to configure model and training parameters.
 In the Anaconda Command Prompt, change directories to the \models\research directory:
-
+```
 (tensorflow13) C:\> cd C:\tensorflow13\models\research
+```
 
 Copy and paste the following command into the command line and press Enter:
 
+```
 protoc --python_out=. .\object_detection\protos\anchor_generator.proto .\object_detection\protos\argmax_matcher.proto .\object_detection\protos\bipartite_matcher.proto .\object_detection\protos\box_coder.proto .\object_detection\protos\box_predictor.proto .\object_detection\protos\eval.proto .\object_detection\protos\faster_rcnn.proto .\object_detection\protos\faster_rcnn_box_coder.proto .\object_detection\protos\grid_anchor_generator.proto .\object_detection\protos\hyperparams.proto .\object_detection\protos\image_resizer.proto .\object_detection\protos\input_reader.proto .\object_detection\protos\losses.proto .\object_detection\protos\matcher.proto .\object_detection\protos\mean_stddev_box_coder.proto .\object_detection\protos\model.proto .\object_detection\protos\optimizer.proto .\object_detection\protos\pipeline.proto .\object_detection\protos\post_processing.proto .\object_detection\protos\preprocessor.proto .\object_detection\protos\region_similarity_calculator.proto .\object_detection\protos\square_box_coder.proto .\object_detection\protos\ssd.proto .\object_detection\protos\ssd_anchor_generator.proto .\object_detection\protos\string_int_label_map.proto .\object_detection\protos\train.proto .\object_detection\protos\keypoint_box_coder.proto .\object_detection\protos\multiscale_anchor_generator.proto .\object_detection\protos\graph_rewriter.proto .\object_detection\protos\calibration.proto .\object_detection\protos\flexible_grid_anchor_generator.proto
+```
 
-Finally, run the following commands from the 
+Finally, run the following commands from the
+
 C:\tensorflow13\models\research directory:
 
+```
 (tensorflow13) C:\tensorflow13\models\research> python setup.py build
 (tensorflow13) C:\tensorflow13\models\research> python setup.py install
+```
 
 ### 2g. Test TensorFlow setup to verify it works
 From the \object_detection directory, issue this command:
@@ -168,12 +185,13 @@ def class_text_to_int(row_label):
         
         
 Then, generate the TFRecord files by issuing these commands from the \object_detection folder:
-
+```
 python generate_tfrecord.py --csv_input=images\train_labels.csv --image_dir=images\train --output_path=train.record
 
 python generate_tfrecord.py --csv_input=images\test_labels.csv --image_dir=images\test --output_path=test.record
 
 These generate a train.record and a test.record file in \object_detection. These will be used to train the new object detection classifier.
+```
 
 # 5. Create Label Map and Configure Training
 
