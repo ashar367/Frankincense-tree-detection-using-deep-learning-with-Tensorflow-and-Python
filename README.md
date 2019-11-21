@@ -241,7 +241,9 @@ Save the file after the changes have been made. The training job is all configur
 
 From the \object_detection directory, issue the following command to begin training:
 
+```
 python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/faster_rcnn_inception_v2_pets.config
+```
 
 If everything has been set up correctly, TensorFlow will initialize the training. The initialization can take up to 30 seconds before the actual training begins. When training begins, it will look like this:
 
@@ -252,7 +254,9 @@ You can view the progress of the training job by using TensorBoard. Open a new i
 
 C:\tensorflow13\models\research\object_detection directory, and issue the following command:
 
+```
 (tensorflow13) C:\tensorflow13\models\research\object_detection>tensorboard --logdir=training
+```
 
 This will create a webpage on the local machine, which can be viewed through a web browser. The TensorBoard page provides information and graphs that show how the training is progressing. One important graph is the Loss graph, which shows the overall loss of the classifier over time.
 
@@ -260,7 +264,9 @@ This will create a webpage on the local machine, which can be viewed through a w
 
 From the \object_detection folder, issue the following command, where “XXXX” in “model.ckpt-XXXX” should be replaced with the highest-numbered .ckpt file in the training folder:
 
+```
 python export_inference_graph.py --input_type image_tensor --pipeline_config_path training/faster_rcnn_inception_v2_pets.config --trained_checkpoint_prefix training/model.ckpt-XXXX --output_directory inference_graph
+```
 
 This creates a frozen_inference_graph.pb file in the \object_detection\inference_graph folder. The .pb file contains the object detection classifier.
 
